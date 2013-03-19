@@ -1099,7 +1099,6 @@ int configureLowRes(hwc_context_t *ctx, hwc_layer_1_t *layer,
     //For the mdp, since either we are pre-rotating or MDP does flips
     orient = OVERLAY_TRANSFORM_0;
     transform = 0;
-
     PipeArgs parg(mdpFlags, whf, z, isFg,
                   static_cast<eRotFlags>(rotFlags), layer->planeAlpha,
                   (ovutils::eBlending) getBlending(layer->blending));
@@ -1214,9 +1213,9 @@ int configureHighRes(hwc_context_t *ctx, hwc_layer_1_t *layer,
     //configure right mixer
     if(rDest != OV_INVALID) {
         PipeArgs pargR(mdpFlagsR, whf, z, isFg,
-                static_cast<eRotFlags>(rotFlags), layer->planeAlpha,
-                (ovutils::eBlending) getBlending(layer->blending));
-
+                       static_cast<eRotFlags>(rotFlags),
+                       layer->planeAlpha,
+                       (ovutils::eBlending) getBlending(layer->blending));
         tmp_dstR.right = tmp_dstR.right - tmp_dstR.left;
         tmp_dstR.left = 0;
         if(configMdp(ctx->mOverlay, pargR, orient,

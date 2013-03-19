@@ -352,7 +352,7 @@ struct PipeArgs {
 
     PipeArgs(eMdpFlags f, Whf _whf,
             eZorder z, eIsFg fg, eRotFlags r,
-            int pA, eBlending b) :
+            int pA = DEFAULT_PLANE_ALPHA, eBlending b = OVERLAY_BLENDING_COVERAGE) :
         mdpFlags(f),
         whf(_whf),
         zorder(z),

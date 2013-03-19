@@ -155,7 +155,7 @@ static int hwc_prepare_primary(hwc_composer_device_1 *dev,
             }
 
             if (ctx->mMDP.version < qdutils::MDP_V4_0) {
-                if((fbZOrder >= 0) && ctx->mCopyBit[dpy])
+                if(ctx->mCopyBit[dpy])
                     ctx->mCopyBit[dpy]->prepare(ctx, list, dpy);
             }
         }
